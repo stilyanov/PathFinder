@@ -1,5 +1,6 @@
 package bg.softuni.pathfinder.service.impl;
 
+import bg.softuni.pathfinder.model.dto.AddRouteDTO;
 import bg.softuni.pathfinder.model.dto.RouteShortInfoDTO;
 import bg.softuni.pathfinder.model.entity.Picture;
 import bg.softuni.pathfinder.model.entity.Route;
@@ -56,5 +57,13 @@ public class RouteServiceImpl implements RouteService {
                 .stream()
                 .map(this::mapToShortInfo)
                 .toList();
+    }
+
+    public AddRouteDTO addRoute(AddRouteDTO addRouteDTO) {
+        Route route = this.modelMapper.map(addRouteDTO, Route.class);
+
+        this.routeRepository.saveAndFlush(route);
+
+        return addRouteDTO;
     }
 }

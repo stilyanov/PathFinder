@@ -1,5 +1,6 @@
 package bg.softuni.pathfinder.model.dto;
 
+import bg.softuni.pathfinder.model.enums.LevelType;
 import jakarta.validation.constraints.*;
 
 public class UserRegisterDTO {
@@ -31,7 +32,17 @@ public class UserRegisterDTO {
     @Max(20)
     private String confirmPassword;
 
+    private LevelType level;
+
     public UserRegisterDTO() {
+    }
+
+    public LevelType getLevel() {
+        return level;
+    }
+
+    public void setLevel(LevelType level) {
+        this.level = level;
     }
 
     public String getUsername() {

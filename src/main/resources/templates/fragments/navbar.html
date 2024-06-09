@@ -1,0 +1,36 @@
+<header th:fragment="navbar">
+    <nav class="main-nav">
+        <ul>
+            <li th:unless="${@currentUser.isLoggedIn()}">
+                <a href="/">Home</a>
+            </li>
+            <li th:unless="${@currentUser.isLoggedIn()}">
+                <a href="/login">Login</a>
+            </li>
+            <li th:unless="${@currentUser.isLoggedIn()}">
+                <a th:href="@{/register}">Register</a>
+            </li>
+            <li th:unless="${@currentUser.isLoggedIn()}">
+                <a href="/about">About</a>
+            </li>
+
+            <th:block th:if="${@currentUser.isLoggedIn()}">
+                <li>
+                <a href="/routes/add">Add new route</a>
+                </li>
+                <li>
+                    <a href="/profile">Profile</a>
+                </li>
+                <li th:if="${@currentUser.isAdmin()}">
+                    <a href="/admin">Admin</a>
+                </li>
+                <li>
+                    <form th:method="POST"
+                          th:action="@{users/logout}">
+                        <button type="submit">Logout</button>
+                    </form>
+                </li>
+            </th:block>
+        </ul>
+    </nav>
+</header>

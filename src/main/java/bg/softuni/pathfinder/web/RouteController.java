@@ -1,10 +1,14 @@
 package bg.softuni.pathfinder.web;
 
+import bg.softuni.pathfinder.model.dto.AddRouteDTO;
 import bg.softuni.pathfinder.model.dto.RouteShortInfoDTO;
 import bg.softuni.pathfinder.service.RouteService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
@@ -28,4 +32,17 @@ public class RouteController {
         return "routes";
     }
 
+    @GetMapping("/routes/add")
+    public String addRoute(Model model) {
+        model.addAttribute("route", new AddRouteDTO());
+
+        return "add-route";
+    }
+
+    @PostMapping("/routes/add")
+    public String addRoute(@ModelAttribute("route") AddRouteDTO addRouteDTO) {
+        this.routeService.addRoute(addRouteDTO);
+
+        return "redirect:/routes";
+    }
 }

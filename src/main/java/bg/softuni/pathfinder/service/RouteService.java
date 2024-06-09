@@ -1,5 +1,6 @@
 package bg.softuni.pathfinder.service;
 
+import bg.softuni.pathfinder.model.dto.AddRouteDTO;
 import bg.softuni.pathfinder.model.dto.RouteShortInfoDTO;
 import bg.softuni.pathfinder.model.entity.Route;
 
@@ -13,4 +14,5 @@ public interface RouteService {
 
     List<RouteShortInfoDTO> getAllRoutes();
 
+    AddRouteDTO addRoute(AddRouteDTO addRouteDTO);
 }

@@ -29,7 +29,7 @@ public class User extends BaseEntity {
     @Enumerated(EnumType.STRING)
     private LevelType userLevel;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     private Set<Role> roles;
 
     public User() {
