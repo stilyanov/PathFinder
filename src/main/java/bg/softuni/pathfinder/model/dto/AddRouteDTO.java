@@ -1,5 +1,6 @@
 package bg.softuni.pathfinder.model.dto;
 
+import bg.softuni.pathfinder.model.enums.CategoryType;
 import bg.softuni.pathfinder.model.enums.LevelType;
 
 public class AddRouteDTO {
@@ -14,7 +15,7 @@ public class AddRouteDTO {
 
     private String videoUrl;
 
-    private String category;
+    private CategoryType category;
 
     public String getName() {
         return name;
@@ -54,5 +55,13 @@ public class AddRouteDTO {
 
     public void setVideoUrl(String videoUrl) {
         this.videoUrl = videoUrl;
+    }
+
+    public CategoryType getCategory() {
+        return category;
+    }
+
+    public void setCategory(CategoryType category) {
+        this.category = category;
     }
 }

@@ -59,11 +59,9 @@ public class RouteServiceImpl implements RouteService {
                 .toList();
     }
 
-    public AddRouteDTO addRoute(AddRouteDTO addRouteDTO) {
+    public void addRoute(AddRouteDTO addRouteDTO) {
         Route route = this.modelMapper.map(addRouteDTO, Route.class);
 
-        this.routeRepository.saveAndFlush(route);
-
-        return addRouteDTO;
+        this.routeRepository.save(route);
     }
 }

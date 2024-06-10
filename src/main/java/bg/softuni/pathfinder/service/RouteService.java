@@ -14,5 +14,5 @@ public interface RouteService {
 
     List<RouteShortInfoDTO> getAllRoutes();
 
-    AddRouteDTO addRoute(AddRouteDTO addRouteDTO);
+    void addRoute(AddRouteDTO addRouteDTO);
 }
