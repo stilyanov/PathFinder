@@ -1,13 +1,13 @@
 <html lang="en"
       xmlns:th="http://www.thymeleaf.org">
 
-<th:block th:insert="~{fragments/head}"/>
+<head th:replace="fragments/head"></head>
 
 <body>
 <div class="wrapper">
     <!-- Navigation -->
 
-    <th:block th:insert="~{fragments/navbar}"/>
+    <header th:replace="fragments/navbar"></header>
 
      <section class="road">
         <div>
@@ -21,6 +21,6 @@
 <!-- Wrapper Ends -->
 </body>
 
-<th:block th:insert="~{fragments/footer}"/>
+<footer th:replace="fragments/footer"></footer>
 
 </html>

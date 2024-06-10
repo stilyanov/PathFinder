@@ -14,6 +14,8 @@ public class AddRouteDTO {
 
     private String videoUrl;
 
+    private String category;
+
     public String getName() {
         return name;
     }

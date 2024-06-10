@@ -35,6 +35,7 @@ public class RouteController {
     @GetMapping("/routes/add")
     public String addRoute(Model model) {
         model.addAttribute("route", new AddRouteDTO());
+//        model.addAttribute("categories", ca)
 
         return "add-route";
     }
