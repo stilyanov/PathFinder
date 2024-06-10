@@ -1,6 +1,7 @@
 package bg.softuni.pathfinder.service.impl;
 
 import bg.softuni.pathfinder.model.dto.UserLoginDTO;
+import bg.softuni.pathfinder.model.dto.UserProfileDTO;
 import bg.softuni.pathfinder.model.dto.UserRegisterDTO;
 import bg.softuni.pathfinder.model.entity.User;
 import bg.softuni.pathfinder.repository.UserRepository;
@@ -51,5 +52,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public void logout() {
         currentUser.setUser(null);
+    }
+
+    @Override
+    public UserProfileDTO getProfile() {
+        return this.modelMapper.map(this.currentUser.getUser(), UserProfileDTO.class);
     }
 }

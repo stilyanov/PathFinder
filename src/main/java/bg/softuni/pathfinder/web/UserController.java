@@ -1,6 +1,7 @@
 package bg.softuni.pathfinder.web;
 
 import bg.softuni.pathfinder.model.dto.UserLoginDTO;
+import bg.softuni.pathfinder.model.dto.UserProfileDTO;
 import bg.softuni.pathfinder.model.dto.UserRegisterDTO;
 import bg.softuni.pathfinder.model.enums.LevelType;
 import bg.softuni.pathfinder.service.UserService;
@@ -68,5 +69,13 @@ public class UserController {
         this.userService.logout();
 
         return "redirect:/";
+    }
+
+    @GetMapping("/profile")
+    public ModelAndView profile() {
+        ModelAndView modelAndView = new ModelAndView("profile");
+
+        modelAndView.addObject("profileData", this.userService.getProfile());
+        return modelAndView;
     }
 }
